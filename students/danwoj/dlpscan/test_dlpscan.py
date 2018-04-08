@@ -1,6 +1,6 @@
 import pytest, sys, csv
 
-from dlpscan import ip_oct_bin, sn_calculation, subnet_calculator, target_list_input
+from dlpscan import linux_login, ip_oct_bin, sn_calculation, subnet_calculator, target_list_input
 
 def test_subnet_calculator():
 # This test verifies the subnet calculator function works
@@ -29,3 +29,9 @@ def test_target_list_input():
     targets = target_list_input(target_file)
     print(targets)
     assert targets == ['192.168.36.1', '192.168.36.2', '192.168.36.3', '192.168.36.4', '192.168.36.5']
+
+def test_linux_login():
+# This test verifies the program can successfully SSH into a 
+# Linux server. This test will only be successful if there is a 
+# Linux server with the IP and a login account as defined in the test
+    target = '192.168.36.131'
